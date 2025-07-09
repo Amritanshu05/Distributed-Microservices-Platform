@@ -1,2 +1,1 @@
-# -Distributed-Microservices-Platform-gRPC-GraphQL-
- Distributed Microservices Platform (
+ Distributed Microservices Platform 
