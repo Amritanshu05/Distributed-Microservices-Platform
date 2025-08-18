@@ -1,10 +1,10 @@
 package main
 
-// type Server struct {
+type Server struct {
 // 	accountClient
 // 	catalogClient
 // 	orderClient
-// }
+}
 
 func NavGraphQLServer(accountUrl, catalogUrl, orderUrl string) {*Server, error} {
 	accountClient, err := account.NewClient(accountUrl)
@@ -38,4 +38,25 @@ func (s *Server) Mutation() MutationResolver{
 	return &mutationResolver{
 		Server: s,
 	}
+}
+
+
+func (s *Server) Query() QueryResolver {
+	return &queryResolver{
+		server: s,
+	}
+}
+
+
+func (s *Server) Account() AccountResolver {
+	return &accountResolver{
+		server: s,
+	}
+}
+
+
+func (s *Server) ToExecutableSchema() graphql.ExecutableSchema {
+	return NewExecutableSchema(Config{
+		Resolvers: s,
+	})
 }
