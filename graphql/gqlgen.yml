@@ -2,7 +2,7 @@ schema: schema.graphql
 
 models:
   Account:
-    model: github.com/Amritanshu05/Distributed-Microservices-Platform/graphql.Account
+    model: github.com/Amritanshu05/Distributed-Microservices-Platformgraphql.Account
     fields:
       orders:
         resolver: true
